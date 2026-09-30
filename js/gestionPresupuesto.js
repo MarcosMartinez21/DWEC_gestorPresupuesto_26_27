@@ -5,7 +5,7 @@
 let presupuesto = 0;
 
 function actualizarPresupuesto(value) {
-    if(value >= 0){
+    if(value >= 0 && typeof(value) === 'Number'){
         presupuesto = value;
         return presupuesto
     }
@@ -20,7 +20,7 @@ function mostrarPresupuesto() {
 }
 
 function CrearGasto() {
-    // TODO
+    
 }
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.

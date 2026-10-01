@@ -26,7 +26,7 @@ function CrearGasto(descripcion, valor) {
         this.valor = valor
     }
     else{
-        valor = 0;
+        this.valor = 0;
     }
 }
 

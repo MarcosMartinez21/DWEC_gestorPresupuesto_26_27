@@ -5,7 +5,7 @@
 let presupuesto = 0;
 
 function actualizarPresupuesto(value) {
-    if(value >= 0 && typeof(value) === 'Number'){
+    if(value >= 0 && typeof(value) === 'number'){
         presupuesto = value;
         return presupuesto
     }

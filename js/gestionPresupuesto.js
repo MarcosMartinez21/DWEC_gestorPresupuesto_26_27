@@ -19,8 +19,15 @@ function mostrarPresupuesto() {
     return `Tu presupuesto actual es de ${presupuesto} €`
 }
 
-function CrearGasto() {
-    
+function CrearGasto(descripcion, valor) {
+    this.descripcion = descripcion;
+
+    if(valor >= 0 && typeof(valor) === 'number'){
+        this.valor = valor
+    }
+    else{
+        valor = 0;
+    }
 }
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.

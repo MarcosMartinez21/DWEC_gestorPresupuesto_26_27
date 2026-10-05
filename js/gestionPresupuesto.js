@@ -39,7 +39,7 @@ function CrearGasto(descripcion, valor) {
         this.descripcion = descripcion
     }
 
-    CrearGasto.prototype.actualizarValor = function(valor){
+    this.actualizarValor = function(valor){
         if(valor >= 0 && typeof(valor) === 'number'){
             this.valor = valor;
         }

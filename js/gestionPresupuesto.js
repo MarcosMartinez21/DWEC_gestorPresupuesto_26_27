@@ -21,12 +21,9 @@ function mostrarPresupuesto() {
     return `Tu presupuesto actual es de ${presupuesto} €`
 }
 
-function CrearGasto(descripcion, valor, fecha, etiquetas) {
+function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     this.descripcion = descripcion;
 
-    if(Array.isArray(etiquetas)){
-        this.etiquetas = [];
-    }
     if(!isNaN(Date.parse(fecha)) && fecha){
         this.fecha = Date.parse(fecha)
     }
@@ -55,15 +52,7 @@ function CrearGasto(descripcion, valor, fecha, etiquetas) {
         }
     }
 
-    this.mostrarGastoCompleto = function(){
-        let texto = `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €. \n`
-        texto += `Fecha: ${new Date(this.fecha).toLocaleString()}\n`
-        texto += `Etiquetas:\n`
-        for(let etiqueta of this.etiquetas){
-            texto += `- ${etiqueta}\n`
-        }
-        return texto;
-    }
+    this.etiquetas = [];
 
     this.anyadirEtiquetas = function(...nuevasEtiquetas){
         for(let etiqueta of nuevasEtiquetas){

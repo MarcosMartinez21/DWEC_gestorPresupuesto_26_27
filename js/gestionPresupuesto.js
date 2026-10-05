@@ -30,20 +30,20 @@ function CrearGasto(descripcion, valor) {
     else{
         this.valor = 0;
     }
-}
 
-CrearGasto.prototype.mostrarGasto = function(){
-    return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`
-}
-
-CrearGasto.prototype.actualizarDescripcion = function(descripcion){
-    this.descripcion = descripcion
-}
-
-CrearGasto.prototype.actualizarValor = function(valor){
-    if(valor >= 0 && typeof(valor) === 'number'){
-        this.valor = valor;
+    this.mostrarGasto = function(){
+        return `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`
     }
+
+    this.actualizarDescripcion = function(descripcion){
+        this.descripcion = descripcion
+    }
+
+    CrearGasto.prototype.actualizarValor = function(valor){
+        if(valor >= 0 && typeof(valor) === 'number'){
+            this.valor = valor;
+        }
+    }    
 }
 
 function listarGastos(){

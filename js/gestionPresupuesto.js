@@ -110,7 +110,11 @@ function borrarGasto(idBuscar){
 }
 
 function calcularTotalGastos(){
-
+    let suma = 0;
+    for(let gasto of gastos){
+        suma += gasto.valor;
+    }
+    return suma;
 }
 
 function calcularBalance(){

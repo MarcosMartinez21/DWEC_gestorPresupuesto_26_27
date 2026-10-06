@@ -62,9 +62,7 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         }
     }
     
-    if(etiquetas.length > 0){
-        this.anyadirEtiquetas(...etiquetas)
-    }
+    this.anyadirEtiquetas(...etiquetas)
 
     this.mostrarGastoCompleto = function(){
         let texto = `Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €.\n`;

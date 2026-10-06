@@ -102,8 +102,11 @@ function anyadirGasto(gasto){
     gastos.push(gasto) 
 }
 
-function borrarGasto(){
-
+function borrarGasto(idBuscar){
+    let posicion = gastos.findIndex(item => item.id == idBuscar)
+    if(posicion != -1){
+        gastos.splice(posicion, 1)
+    }
 }
 
 function calcularTotalGastos(){

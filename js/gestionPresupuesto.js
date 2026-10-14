@@ -135,8 +135,10 @@ function calcularBalance(){
     return presupuesto - calcularTotalGastos()
 }
 
-function filtrarGastos(){
+function filtrarGastos({fechaDesde, fechaHasta, valorMinimo, valorMaximo, descripcionContiene, etiquetasTiene}){
+    if(fechaDesde == String){
 
+    }
 }
 
 function agruparGastos(){

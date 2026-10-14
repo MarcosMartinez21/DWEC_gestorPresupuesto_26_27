@@ -88,6 +88,22 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
             }
         }
     }
+
+    this.obtenerPeriodoAgrupacion = function(periodo){
+        const periodoMinus = periodo.toLowerCase()
+        const fechaObj = new Date(this.fecha)
+
+        let anyo = fechaObj.getFullYear();
+        let mes = String(fechaObj.getMonth() + 1).padStart(2, '0');
+        let dia = String(fechaObj.getDate()).padStart(2, '0');
+        
+        if(periodoMinus === "anyo")
+            return String(anyo)
+        else if(periodoMinus === "mes")
+            return `${anyo}-${mes}`
+        else if(periodoMinus === "dia")
+            return `${anyo}-${mes}-${dia}`
+    }
 }
 
 function listarGastos(){
@@ -124,7 +140,7 @@ function filtrarGastos(){
 }
 
 function agruparGastos(){
-    
+
 }
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.

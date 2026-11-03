@@ -1,9 +1,7 @@
-function mostrarDatoEnId(valor, idElemento){
+function mostrarDatoEnId(idElemento, valor){
     document.getElementById(idElemento).textContent = valor
 }
 
 export{
-    mostrarDatoEnId,
-    mostrarGastoWeb,
-    mostrarGastosAgrupadosWeb
+    mostrarDatoEnId
 }

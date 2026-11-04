@@ -56,7 +56,7 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo){
         
         const nodoHijo2_2 = document.createElement("span")
         nodoHijo2_2.className = "agrupacion-dato-valor"
-        nodoHijo2_2.textContent = valor
+        nodoHijo2_2.textContent = `: ${valor}`
         nodoHijo2.append(nodoHijo2_2)
 
         nodoPadre.append(nodoHijo2)

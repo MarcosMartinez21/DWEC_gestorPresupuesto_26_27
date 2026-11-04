@@ -47,3 +47,6 @@ gpw.mostrarGastosAgrupadosWeb('agrupacion-dia', gastosAgrup, 'día')
 
 let gastosAgrupMes = gp.agruparGastos('mes')
 gpw.mostrarGastosAgrupadosWeb('agrupacion-mes', gastosAgrupMes, 'mes')
+
+let gastosAgrupAnyo = gp.agruparGastos('anyo')
+gpw.mostrarGastosAgrupadosWeb('agrupacion-anyo', gastosAgrupAnyo, 'año')

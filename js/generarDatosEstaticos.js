@@ -25,3 +25,7 @@ gpw.mostrarDatoEnId('balance-total', gp.calcularBalance())
 for(let gasto of gp.listarGastos()){
     gpw.mostrarGastoWeb('listado-gastos-completo', gasto)
 }
+
+for(let gasto of gp.filtrarGastos({fechaDesde: "2021-09-01", fechaHasta: "2021-09-30"})){
+    gpw.mostrarGastoWeb('listado-gastos-filtrado-1', gasto)
+}

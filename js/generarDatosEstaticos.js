@@ -41,3 +41,7 @@ for(let gasto of gp.filtrarGastos({valorMinimo: 200.00, etiqueta: "seguros"})){
 for(let gasto of gp.filtrarGastos({valorMaximo: 50.00, etiqueta: "comida" || "transporte"})){
     gpw.mostrarGastoWeb('listado-gastos-filtrado-4', gasto)
 }
+
+for(let gasto of gp.agruparGastos('dia')){
+    gpw.mostrarGastosAgrupadosWeb('agrupacion-dia', gasto, 'dia')
+}

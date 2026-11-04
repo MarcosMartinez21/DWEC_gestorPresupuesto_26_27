@@ -42,6 +42,5 @@ for(let gasto of gp.filtrarGastos({valorMaximo: 50.00, etiqueta: "comida" || "tr
     gpw.mostrarGastoWeb('listado-gastos-filtrado-4', gasto)
 }
 
-for(let gasto of gp.agruparGastos('dia')){
-    gpw.mostrarGastosAgrupadosWeb('agrupacion-dia', gasto, 'dia')
-}
+let gastosAgrup = gp.agruparGastos('dia')
+gpw.mostrarGastosAgrupadosWeb('agrupacion-dia', gastosAgrup, 'día')

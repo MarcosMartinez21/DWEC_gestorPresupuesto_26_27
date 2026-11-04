@@ -45,20 +45,21 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo){
     nodoHijo1.textContent = `Gastos agrupados por ${periodo}`
     nodoPadre.append(nodoHijo1)
 
-    for(let agrupacion of agrup){
+    for(let [nombre, valor] of Object.entries(agrup)){
         const nodoHijo2 = document.createElement("div")
-        nodoHijo2.textContent = "agrupacion-dato"
-        nodoPadre.append(nodoHijo2)
+        nodoHijo2.className = "agrupacion-dato"
 
         const nodoHijo2_1 = document.createElement("span")
         nodoHijo2_1.className = "agrupacion-dato-clave"
-        nodoHijo2_1.textContent = agrupacion.nombre
+        nodoHijo2_1.textContent = nombre
         nodoHijo2.append(nodoHijo2_1)
         
         const nodoHijo2_2 = document.createElement("span")
         nodoHijo2_2.className = "agrupacion-dato-valor"
-        nodoHijo2_2.textContent = agrupacion.valor
+        nodoHijo2_2.textContent = valor
         nodoHijo2.append(nodoHijo2_2)
+
+        nodoPadre.append(nodoHijo2)
     }
 
     const contenedor = document.getElementById(idElemento)

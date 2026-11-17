@@ -94,7 +94,18 @@ boton.addEventListener("click", actualizarPresupuestoWeb)
 
 function nuevoGastoWeb(){
     let descripcion = prompt('Introduce descripcion: ', 'Descripcion por defecto')
+    let valorString = prompt('Introduce valor: ', '50')
+    let fecha = prompt('Introduce fecha: ', '2020-05-22')
+    let etiquetas = prompt('Introduce etiquetas: ', 'etiqueta1,etiqueta2,etiqueta3')
+    let valor = Number(valorString)
+
+    let arrayEtiquetas = etiquetas.split(',')
+    let gasto = new gp.CrearGasto(descripcion, valor, fecha, ...arrayEtiquetas)
+    gp.anyadirGasto(gasto)
+    repintar()
 }
+let botonAnyadirgasto = document.getElementById('anyadirgasto')
+botonAnyadirgasto.addEventListener("click", nuevoGastoWeb)
 
 export{
     mostrarDatoEnId,

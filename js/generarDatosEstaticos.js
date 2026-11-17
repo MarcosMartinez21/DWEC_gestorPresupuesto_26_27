@@ -3,7 +3,7 @@ import * as gpw from './gestionPresupuestoWeb.js'
 
 gp.actualizarPresupuesto(1500)
 
-gpw.mostrarDatoEnId('presupuesto', gp.mostrarPresupuesto())
+
 
 let gasto1 = new gp.CrearGasto("Compra carne", 23.44, "2021-10-06", "casa", "comida")
 let gasto2 = new gp.CrearGasto("Compra fruta y verdura", 14.25, "2021-09-06", "supermercado", "comida")
@@ -19,12 +19,7 @@ gp.anyadirGasto(gasto4)
 gp.anyadirGasto(gasto5)
 gp.anyadirGasto(gasto6)
 
-gpw.mostrarDatoEnId('gastos-totales', gp.calcularTotalGastos().toFixed(2))
-gpw.mostrarDatoEnId('balance-total', gp.calcularBalance().toFixed(2))
-
-for(let gasto of gp.listarGastos()){
-    gpw.mostrarGastoWeb('listado-gastos-completo', gasto)
-}
+gpw.repintar()
 
 for(let gasto of gp.filtrarGastos({fechaDesde: "2021-09-01", fechaHasta: "2021-09-30"})){
     gpw.mostrarGastoWeb('listado-gastos-filtrado-1', gasto)

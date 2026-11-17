@@ -70,8 +70,20 @@ function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo){
     }
 }
 
+function repintar(){
+    mostrarDatoEnId('presupuesto', gp.mostrarPresupuesto())
+    mostrarDatoEnId('gastos-totales', gp.calcularTotalGastos().toFixed(2))
+    mostrarDatoEnId('balance-total', gp.calcularBalance().toFixed(2))
+    document.getElementById('listado-gastos-completo').innerHTML = ""
+
+    for(let gasto of gp.listarGastos()){
+        mostrarGastoWeb('listado-gastos-completo', gasto)
+    }
+}
+
 export{
     mostrarDatoEnId,
     mostrarGastoWeb,
-    mostrarGastosAgrupadosWeb
+    mostrarGastosAgrupadosWeb,
+    repintar
 }

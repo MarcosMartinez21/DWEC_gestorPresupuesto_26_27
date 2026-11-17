@@ -82,7 +82,7 @@ function repintar(){
 }
 
 function actualizarPresupuestoWeb(){
-    let presupuestoString = prompt('Introduce presupuesto: ', [1500])
+    let presupuestoString = prompt('Introduce presupuesto: ', 1500)
     let presupuesto = Number(presupuestoString)
 
     gp.actualizarPresupuesto(presupuesto)
@@ -92,9 +92,15 @@ function actualizarPresupuestoWeb(){
 let boton = document.getElementById('actualizarpresupuesto')
 boton.addEventListener("click", actualizarPresupuestoWeb)
 
+function nuevoGastoWeb(){
+    let descripcion = prompt('Introduce descripcion: ', 'Descripcion por defecto')
+}
+
 export{
     mostrarDatoEnId,
     mostrarGastoWeb,
     mostrarGastosAgrupadosWeb,
-    repintar
+    repintar,
+    actualizarPresupuestoWeb,
+    nuevoGastoWeb
 }

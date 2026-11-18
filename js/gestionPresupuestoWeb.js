@@ -31,6 +31,12 @@ function mostrarGastoWeb(idElemento, gasto){
         const nodoHijo4_1 = document.createElement("span")
         nodoHijo4_1.className = "gasto-etiquetas-etiqueta"
         nodoHijo4_1.textContent = etiqueta
+
+        let etiquetaBorrada = new BorrarEtiquetasHandle()
+        etiquetaBorrada.gasto = gasto
+        etiquetaBorrada.etiquetas = etiqueta
+        nodoHijo4_1.addEventListener("click", etiquetaBorrada)
+        
         nodoHijo4.append(nodoHijo4_1)
     }
 
@@ -153,6 +159,15 @@ function BorrarHandle(){
     }
 }
 
+function BorrarEtiquetasHandle(){
+    this.handleEvent = function(evento){
+        this.gasto.borrarEtiquetas(this.etiquetas)
+        repintar()
+    }
+}
+
+
+
 
 export{
     mostrarDatoEnId,
@@ -162,5 +177,6 @@ export{
     actualizarPresupuestoWeb,
     nuevoGastoWeb,
     EditarHandle,
-    BorrarHandle
+    BorrarHandle,
+    BorrarEtiquetasHandle
 }

@@ -33,6 +33,23 @@ function mostrarGastoWeb(idElemento, gasto){
         nodoHijo4_1.textContent = etiqueta
         nodoHijo4.append(nodoHijo4_1)
     }
+
+    const nodoHijo5 = document.createElement("button")
+    nodoHijo5.className = "gasto-editar"
+    nodoHijo5.textContent = "Editar"
+
+    let miEdicion = new EditarHandle()
+    miEdicion.gastoEditar = gasto
+    nodoHijo5.addEventListener("click", miEdicion)
+
+    nodoPadre.append(nodoHijo5)
+    
+
+    const nodoHijo6 = document.createElement("button")
+    nodoHijo6.className = "gasto-borrar"
+    nodoHijo6.textContent = "Borrar"
+    nodoPadre.append(nodoHijo6)
+
     const contenedor = document.getElementById(idElemento)
     if(contenedor){
         contenedor.append(nodoPadre)
@@ -89,8 +106,8 @@ function actualizarPresupuestoWeb(){
     repintar()
 }
 
-let boton = document.getElementById('actualizarpresupuesto')
-boton.addEventListener("click", actualizarPresupuestoWeb)
+let botonActualizarPresupuesto = document.getElementById('actualizarpresupuesto')
+botonActualizarPresupuesto.addEventListener("click", actualizarPresupuestoWeb)
 
 function nuevoGastoWeb(){
     let descripcion = prompt('Introduce descripcion: ', 'Descripcion por defecto')
@@ -104,8 +121,26 @@ function nuevoGastoWeb(){
     gp.anyadirGasto(gasto)
     repintar()
 }
-let botonAnyadirgasto = document.getElementById('anyadirgasto')
-botonAnyadirgasto.addEventListener("click", nuevoGastoWeb)
+let botonAnyadirGasto = document.getElementById('anyadirgasto')
+botonAnyadirGasto.addEventListener("click", nuevoGastoWeb)
+
+function EditarHandle(){
+    this.handleEvent = function(evento){
+        let descripcion = prompt('Introduce descripcion: ', 'Descripcion por defecto')
+        let valorString = prompt('Introduce valor: ', '50')
+        let fecha = prompt('Introduce fecha: ', '2020-05-22')
+        let etiquetas = prompt('Introduce etiquetas: ', 'etiqueta1,etiqueta2,etiqueta3')
+        let valor = Number(valorString)
+
+        let arrayEtiquetas = etiquetas.split(',')
+        this.gastoEditar.actualizarValor(valor)
+        this.gastoEditar.actualizarDescripcion(descripcion)
+        this.gastoEditar.actualizarFecha(fecha)
+        this.gastoEditar.anyadirEtiquetas(...arrayEtiquetas)
+        repintar()
+    }
+}
+
 
 export{
     mostrarDatoEnId,
@@ -113,5 +148,6 @@ export{
     mostrarGastosAgrupadosWeb,
     repintar,
     actualizarPresupuestoWeb,
-    nuevoGastoWeb
+    nuevoGastoWeb,
+    EditarHandle
 }

@@ -48,6 +48,11 @@ function mostrarGastoWeb(idElemento, gasto){
     const nodoHijo6 = document.createElement("button")
     nodoHijo6.className = "gasto-borrar"
     nodoHijo6.textContent = "Borrar"
+
+    let miBorrado = new BorrarHandle()
+    miBorrado.gastoBorrar = gasto
+    nodoHijo6.addEventListener("click", miBorrado) 
+
     nodoPadre.append(nodoHijo6)
 
     const contenedor = document.getElementById(idElemento)
@@ -141,6 +146,13 @@ function EditarHandle(){
     }
 }
 
+function BorrarHandle(){
+    this.handleEvent = function(evento){
+        gp.borrarGasto(this.gastoBorrar.id)
+        repintar()
+    }
+}
+
 
 export{
     mostrarDatoEnId,
@@ -149,5 +161,6 @@ export{
     repintar,
     actualizarPresupuestoWeb,
     nuevoGastoWeb,
-    EditarHandle
+    EditarHandle,
+    BorrarHandle
 }
